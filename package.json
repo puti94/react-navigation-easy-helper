@@ -1,0 +1,22 @@
+{
+  "name": "react-navigation-easy-helper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/puti94/react-navigation-easy-helper.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/puti94/react-navigation-easy-helper/issues"
+  },
+  "homepage": "https://github.com/puti94/react-navigation-easy-helper#readme"
+}
