@@ -4,5 +4,5 @@
  * GitHub:https://github.com/puti94
  * Email:1059592160@qq.com
  */
-    export {addToRouteStack, configRoute} from './addToRouteStack'
+export {addToRouteStack, configRoute} from './addToRouteStack'
 export {RouteHelper} from './RouteHelper'

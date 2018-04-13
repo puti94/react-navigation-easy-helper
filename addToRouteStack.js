@@ -15,28 +15,18 @@ export const addToRouteStack = (OldComponent) => {
         static displayName = `addToRouteStack(${OldComponent.displayName ||
         OldComponent.name})`;
 
-        isFocus = false;
-
         componentDidMount() {
             RouteHelper.addStack(this.props.navigation);
-            this.subscriptions = [
-                this.props.navigation.addListener('didFocus', () => {
-                    this.isFocus = true;
-                }), this.props.navigation.addListener('willBlur', () => {
-                    this.isFocus = false;
-                })]
         }
 
         componentWillUnmount() {
             RouteHelper.remove(this.props.navigation);
-            this.subscriptions.forEach(sub => sub.remove());
         }
 
         render() {
             return <OldComponent
                 {...this.props}
                 {...this.props.navigation.state.params}
-                isFocused={() => this.isFocus}
             />
         }
     }

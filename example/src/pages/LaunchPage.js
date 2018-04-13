@@ -9,7 +9,7 @@
 import React, {Component} from 'react';
 import {Button, View} from 'react-native'
 
-import {RouteHelper} from 'react-navigation-easy-helper'
+import {RouteHelper} from '../utils'
 
 
 export default class LaunchPage extends Component {
@@ -21,6 +21,13 @@ export default class LaunchPage extends Component {
 
     componentDidMount() {
 
+        this.countTime = setInterval(() => {
+            console.log('LaunchPage', this.props.navigation.isFocused())
+        }, 1000)
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.countTime)
     }
 
     render() {
@@ -31,6 +38,10 @@ export default class LaunchPage extends Component {
             }}/>
             <Button title={'跳转页面 push("Test2Page",params)'} onPress={() => {
                 RouteHelper.push('Test2Page', {params: '我是参数'})
+            }}/>
+
+            <Button title={'重置到Tab页面'} onPress={() => {
+                RouteHelper.reset('Tab')
             }}/>
 
             <Button title={'模拟快速点击'} onPress={() => {

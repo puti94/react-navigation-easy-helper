@@ -8,7 +8,10 @@ import {NavigationActions} from 'react-navigation'
 
 export class RouteHelper {
     //app唯一导航组件的实例
-    static navigation = null;
+    static get navigation() {
+        return this.routeStack.length !== 0 ? this.routeStack[this.routeStack.length - 1] : null
+    };
+
     //上次执行to方法的时间
     static lastActionTime = 0;
     //重复点击判断间隔时间,单位毫秒
@@ -24,11 +27,9 @@ export class RouteHelper {
      */
 
     static addStack(navigation) {
-        if (this.routeStack.findIndex((item) => navigation.state.key === item.key) === -1) {
-            //给navigation赋值
-            this.navigation = navigation;
+        if (this.routeStack.findIndex((item) => navigation.state.key === item.state.key) === -1) {
             //将状态保存到本地
-            this.routeStack.push(navigation.state);
+            this.routeStack.push(navigation);
         }
     }
 
@@ -37,7 +38,7 @@ export class RouteHelper {
      * @param navigation
      */
     static remove(navigation) {
-        let index = this.routeStack.findIndex((item) => navigation.state.key === item.key);
+        let index = this.routeStack.findIndex((item) => navigation.state.key === item.state.key);
         if (index !== -1) {
             this.routeStack.splice(index, 1);
         }
@@ -113,11 +114,11 @@ export class RouteHelper {
      */
     static goBackTo(routeName) {
         let tag = false;
-        this.routeStack.forEach((state, i) => {
+        this.routeStack.forEach(({state}, i) => {
             //判断routeName相同并且不是列表最后一个表示匹配成功
             if (state.routeName === routeName && i < this.routeStack.length - 1 && !tag) {
                 //获取+1的key
-                let key = this.routeStack[i + 1].key;
+                let key = this.routeStack[i + 1].state.key;
                 //需要移除导航栈索引后面的值
                 //执行StackNavigation的goBack(key)方法
                 this.navigation.goBack(key);

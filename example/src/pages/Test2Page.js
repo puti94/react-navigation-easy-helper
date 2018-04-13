@@ -9,7 +9,7 @@
 import React, {Component} from 'react';
 import {Button, View, Text} from 'react-native'
 
-import {RouteHelper} from 'react-navigation-easy-helper'
+import {RouteHelper} from '../utils'
 
 
 export default class Test2Page extends Component {
@@ -19,13 +19,14 @@ export default class Test2Page extends Component {
     });
 
     componentDidMount() {
-        this.interval = setInterval(() => {
-            console.log('Test2Page isFocused', this.props.isFocused())
-        }, 3000);
+
+        this.countTime = setInterval(() => {
+            console.log('Test2Page', this.props.navigation.isFocused())
+        }, 1000)
     }
 
     componentWillUnmount() {
-        this.interval && clearInterval(this.interval)
+        clearInterval(this.countTime)
     }
 
 
@@ -37,13 +38,14 @@ export default class Test2Page extends Component {
                 RouteHelper.navigate('Test3Page')
             }}/>
             <Button title={'返回上一页 goBack()'} onPress={() => {
+                console.log(RouteHelper.navigation);
                 RouteHelper.goBack()
             }}/>
             <Button title={'返回上一页 pop()'} onPress={() => {
                 RouteHelper.pop();
             }}/>
             <Button title={'重置路由 reset(routeName)'} onPress={() => {
-                RouteHelper.reset('LaunchPage')
+                RouteHelper.reset('Test3Page')
             }}/>
 
         </View>);

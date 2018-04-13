@@ -1,5 +1,5 @@
 # react-navigation-easy-helper
-由于Navigator被官方移除，官方推荐的路由是react-navigation。但使用起来还是有些复杂。本组件旨在不更改源码情况下，简单配置即可实现一些复杂的功能。如在任意位置进行跳转、根据路由名字返回指定页面、简化参数的获取、快速点击的拦截、统一页面跳转的拦截、页面是否Focus的回调等。
+由于Navigator被官方移除，官方推荐的路由是react-navigation。但使用起来还是有些复杂。本组件旨在不更改源码情况下，简单配置即可实现一些复杂的功能。如在任意位置进行跳转、根据路由名字返回指定页面、简化参数的获取、快速点击的拦截、统一页面跳转的拦截等。
 
 - 安装:`npm install react-navigation-easy-helper --save` or `yarn add react-navigation-easy-helper`
 - 使用: 
@@ -24,8 +24,6 @@
     RouteHelper.navigate('Test2Page', {params: '我是参数'})
     //返回指定页面
     RouteHelper.goBackTo('Test2Page')
-    //判断是否在栈顶的方法
-    this.props.isFocused()
     
        //跳转拦截器用法
         let needLoginPage = ['Test3Page'];
