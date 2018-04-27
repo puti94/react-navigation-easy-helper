@@ -19,11 +19,20 @@
         initialRouteName: 'LaunchPage'
     }
    );
-    
+     
     //在任意地方就可以这样使用
     RouteHelper.navigate('Test2Page', {params: '我是参数'})
     //返回指定页面
     RouteHelper.goBackTo('Test2Page')
+    
+    //在注册的页面可以添加回调
+     componentDidFocus(){
+        console.log('componentDidFocus',arguments)
+     }
+
+     componentWillBlur(){
+        console.log('componentWillBlur',arguments)
+     }
     
        //跳转拦截器用法
         let needLoginPage = ['Test3Page'];

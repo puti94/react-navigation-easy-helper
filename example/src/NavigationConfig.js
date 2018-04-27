@@ -12,7 +12,8 @@ import Test4Page from './pages/Test4Page'
 import LoginPage from './pages/LoginPage'
 
 import LaunchPage from './pages/LaunchPage'
-import {configRoute} from './utils'
+// import {configRoute} from './utils'
+import {configRoute} from 'react-navigation-easy-helper'
 import Tab1Page from "./pages/Tab1Page";
 import Tab2Page from "./pages/Tab2Page";
 

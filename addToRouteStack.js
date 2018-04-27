@@ -12,19 +12,34 @@ import hoistNonReactStatics from 'hoist-non-react-statics'
 
 export const addToRouteStack = (OldComponent) => {
     class NewComponent extends Component {
-        static displayName = `addToRouteStack(${OldComponent.displayName ||
-        OldComponent.name})`;
+        static displayName = `${OldComponent.displayName || OldComponent.name}`;
 
         componentDidMount() {
-            RouteHelper.addStack(this.props.navigation);
+            const {navigation} = this.props
+            RouteHelper.addStack(navigation);
+            const componentDidFocus =
+                this.pageComponent.componentDidFocus &&
+                typeof this.pageComponent.componentDidFocus === 'function' &&
+                this.pageComponent.componentDidFocus.bind(this.pageComponent);
+            const componentWillBlur =
+                this.pageComponent.componentWillBlur &&
+                typeof this.pageComponent.componentWillBlur === 'function' &&
+                this.pageComponent.componentWillBlur.bind(this.pageComponent);
+            this.subscriptions = [];
+            componentDidFocus && this.subscriptions.push(navigation.addListener('didFocus', componentDidFocus))
+            componentWillBlur && this.subscriptions.push(navigation.addListener('willBlur', componentWillBlur))
         }
 
         componentWillUnmount() {
             RouteHelper.remove(this.props.navigation);
+            this.subscriptions.forEach(sub => sub.remove());
         }
+
+        _bindRef = (ref) => this.pageComponent = ref;
 
         render() {
             return <OldComponent
+                ref={this._bindRef}
                 {...this.props}
                 {...this.props.navigation.state.params}
             />

@@ -13,7 +13,8 @@ import {
     Text,
     Button
 } from 'react-native';
-import {RouteHelper} from "../utils";
+// import {RouteHelper} from "../utils";
+import {RouteHelper} from "react-navigation-easy-helper";
 
 
 export default class Tab1Page extends Component {

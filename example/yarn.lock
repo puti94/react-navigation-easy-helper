@@ -4226,9 +4226,9 @@ react-native@0.54.0:
     xmldoc "^0.4.0"
     yargs "^9.0.0"
 
-react-navigation-easy-helper@^1.0.0:
-  version "1.0.0"
-  resolved "http://registry.npm.taobao.org/react-navigation-easy-helper/download/react-navigation-easy-helper-1.0.0.tgz#cd358485fe1dadec1f51a31e3fb79096ce328052"
+react-navigation-easy-helper@^1.1.0:
+  version "1.1.0"
+  resolved "http://registry.npm.taobao.org/react-navigation-easy-helper/download/react-navigation-easy-helper-1.1.0.tgz#71bedebd06cd21f6ad503971dbf9896b7acaa31b"
 
 react-navigation@^1.5.8:
   version "1.5.8"

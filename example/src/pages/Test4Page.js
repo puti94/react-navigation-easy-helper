@@ -9,7 +9,8 @@
 import React, {Component} from 'react';
 import {Button, View} from 'react-native'
 
-import {RouteHelper} from '../utils'
+// import {RouteHelper} from '../utils'
+import {RouteHelper} from 'react-navigation-easy-helper'
 
 
 export default class Test4Page extends Component {
