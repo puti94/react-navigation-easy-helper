@@ -133,7 +133,7 @@ export class RouteHelper {
      * @param routeName
      */
     static reset(routeName) {
-        const reset = (StackActions && StackActions.reset) || NavigationActions.reset;
+        const reset = (NavigationActions && NavigationActions.reset) || StackActions.reset;
         let resetAction = reset({
             index: 0,
             actions: [
