@@ -3,7 +3,7 @@
  * 路由管理类
  */
 
-import {NavigationActions} from 'react-navigation'
+import {NavigationActions, StackActions} from 'react-navigation'
 
 
 export class RouteHelper {
@@ -133,7 +133,8 @@ export class RouteHelper {
      * @param routeName
      */
     static reset(routeName) {
-        let resetAction = NavigationActions.reset({
+        const reset = (StackActions && StackActions.reset) || NavigationActions.reset;
+        let resetAction = reset({
             index: 0,
             actions: [
                 NavigationActions.navigate({routeName: routeName})
