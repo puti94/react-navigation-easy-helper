@@ -1,6 +1,6 @@
 {
   "name": "react-navigation-easy-helper",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "",
   "main": "index.js",
   "directories": {
@@ -18,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/puti94/react-navigation-easy-helper/issues"
   },
+  "files": [
+    "index.js",
+    "RouteHelper.js",
+    "addToRouteStack.js",
+    "README.md"
+  ],
   "homepage": "https://github.com/puti94/react-navigation-easy-helper#readme"
 }

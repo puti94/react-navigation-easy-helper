@@ -18,11 +18,11 @@ export const addToRouteStack = (OldComponent) => {
             const {navigation} = this.props
             RouteHelper.addStack(navigation);
             const componentDidFocus =
-                this.pageComponent.componentDidFocus &&
+                this.pageComponent && this.pageComponent.componentDidFocus &&
                 typeof this.pageComponent.componentDidFocus === 'function' &&
                 this.pageComponent.componentDidFocus.bind(this.pageComponent);
             const componentWillBlur =
-                this.pageComponent.componentWillBlur &&
+                this.pageComponent && this.pageComponent.componentWillBlur &&
                 typeof this.pageComponent.componentWillBlur === 'function' &&
                 this.pageComponent.componentWillBlur.bind(this.pageComponent);
             this.subscriptions = [];
